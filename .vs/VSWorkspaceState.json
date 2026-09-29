@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bookcatalog",
+    "\\bookcatalog\\src",
+    "\\bookcatalog\\src\\main",
+    "\\bookcatalog\\src\\main\\java",
+    "\\bookcatalog\\src\\main\\java\\com",
+    "\\bookcatalog\\src\\main\\java\\com\\example",
+    "\\bookcatalog\\src\\main\\java\\com\\example\\bookcatalog",
+    "\\bookcatalog\\src\\main\\resources"
+  ],
+  "SelectedNode": "\\bookcatalog\\src\\main\\java\\com\\example\\bookcatalog\\BookController.java",
+  "PreviewInSolutionExplorer": false
+}
