@@ -25,4 +25,23 @@ public class BookController {
     public List<Book> getAllBooks() {
         return books;
     }
+
+    // GET /api/books/{id} - finds one book by its ID
+    @GetMapping("/{id}")
+    public Book getBookById(@PathVariable Long id) {
+        return books.stream()
+                .filter(b -> b.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // POST /api/books - creates a new book from JSON in the request body
+    @PostMapping
+    public Book createBook(@RequestBody Book book) {
+        book.setId(nextId++);
+        books.add(book);
+        return book;
+    }
+
+
 }
