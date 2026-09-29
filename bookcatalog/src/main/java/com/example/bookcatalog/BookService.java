@@ -17,14 +17,18 @@ public class BookService {
 
     public Book getBookById(Long id) { // Throws error if book not found
         return bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                                .orElseThrow(() -> new BookNotFoundException(id));
     }
 
     public Book createBook(Book book) { // Saves a new book to the database
         return bookRepository.save(book);
     }
 
-    public void deleteBook(Long id) { // Removes a book by ID
-        bookRepository.deleteById(id);
+    public void deleteBook(Long id) {
+    // Check if the book exists before attempting to delete
+    if (!bookRepository.existsById(id)) {
+        throw new BookNotFoundException(id);
+    }
+    bookRepository.deleteById(id);
     }
 }
