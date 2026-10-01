@@ -31,4 +31,14 @@ public class BookService {
     }
     bookRepository.deleteById(id);
     }
+
+        // Search for books by title (case-insensitive partial match)
+    public List<Book> searchByTitle(String title) {
+        return bookRepository.findByTitleContainingIgnoreCase(title);
+    }
+
+    // Search for books by author (case-insensitive partial match)
+    public List<Book> searchByAuthor(String author) {
+        return bookRepository.findByAuthorContainingIgnoreCase(author);
+    }
 }
