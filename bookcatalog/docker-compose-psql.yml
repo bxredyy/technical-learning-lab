@@ -1,0 +1,28 @@
+services:
+  postgres-primary:
+    image: postgres:16-alpine
+    container_name: postgres-primary
+    environment:
+      POSTGRES_DB: bookcatalog
+      POSTGRES_USER: bookcatalog
+      POSTGRES_PASSWORD: bookcatalog
+    ports:
+      - "5433:5432"
+    volumes:
+      - primary-data:/var/lib/postgresql/data
+
+  postgres-replica:
+    image: postgres:16-alpine
+    container_name: postgres-replica
+    environment:
+      POSTGRES_DB: bookcatalog
+      POSTGRES_USER: bookcatalog
+      POSTGRES_PASSWORD: bookcatalog
+    ports:
+      - "5434:5432"
+    volumes:
+      - replica-data:/var/lib/postgresql/data
+
+volumes:
+  primary-data:
+  replica-data:
